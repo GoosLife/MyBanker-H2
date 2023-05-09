@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace MyBanker
 {
+    public enum LimitInterval
+    {
+        DAY,
+        MONTH
+    }
+
     public class Limit
     {
-        public string Interval { get; private set; }
+        public LimitInterval Interval { get; private set; }
         public int LimitAmount { get; private set; }
 
-        public Limit(string interval, int limitAmount)
+        public Limit(LimitInterval interval, int limitAmount)
         {
             Interval = interval;
             LimitAmount = limitAmount;

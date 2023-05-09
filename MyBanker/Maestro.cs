@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyBanker
 {
-    internal class Maestro : Card
+    internal class Maestro : Card, IInternationalTransaction, IOnlineTransaction
     {
         public Maestro(Account account) : base(account)
         {
@@ -20,6 +20,7 @@ namespace MyBanker
             prefixes.Add("6762");
             prefixes.Add("6763");
             MinimumAge = 18;
+            CardNumberLength = 19;
         }
 
         public void MakeInternationalTransaction()
@@ -30,6 +31,11 @@ namespace MyBanker
         public void MakeOnlineTransaction()
         {
             Console.WriteLine("You have most definitely just made an online transaction with a Maestro card.");
+        }
+
+        protected override DateTime GenerateExpiryDate()
+        {
+            return DateTime.Now.AddYears(5).AddMonths(8);
         }
     }
 }
