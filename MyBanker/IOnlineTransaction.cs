@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace MyBanker
 {
+    /// <summary>
+    /// Interface for making online transactions.
+    /// </summary>
     public interface IOnlineTransaction
     {
+        /// <summary>
+        /// Make an online transaction.
+        /// </summary>
         void MakeOnlineTransaction();
     }
 }

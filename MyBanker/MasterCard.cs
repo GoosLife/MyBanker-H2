@@ -6,9 +6,19 @@ using System.Threading.Tasks;
 
 namespace MyBanker
 {
+    /// <summary>
+    /// Represents a MasterCard.
+    /// </summary>
     public class MasterCard : CreditCard
     {
+        /// <summary>
+        /// The daily limit for the card.
+        /// </summary>
         Limit DailyLimit = new Limit(LimitInterval.DAY, 5000);
+
+        /// <summary>
+        /// The monthly limit for the card.
+        /// </summary>
         Limit MonthlyLimit = new Limit(LimitInterval.MONTH, 30000);
 
         public MasterCard(Account account, int totalCredit = 40000) : base(account, totalCredit)
